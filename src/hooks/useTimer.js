@@ -27,7 +27,9 @@ const useTimer = ({ handleAudioPlayer, isPlayClicked }) => {
         if (minutes === 0) {
           setStartClicked(false);
           setTimerRunning(false);
-          handleAudioPlayer();
+          if (isPlayClicked) {
+            handleAudioPlayer();
+          }
           playBeepBeep();
         } else {
           setMinutes(minutes - 1);

@@ -137,7 +137,8 @@ const useAudioPlayer = (audioRef, setSelectedButton) => {
       title: "Pomodoro and white noise.",
     });
 
-    const audioElement = document.getElementById("myAudio");
+    //const audioElement = document.getElementById("myAudio");
+    const audioElement = audioRef.current;
 
     navigator.mediaSession.setActionHandler("play", function () {
       //handleAudioPlayer();

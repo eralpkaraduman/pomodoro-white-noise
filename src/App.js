@@ -124,9 +124,6 @@ const App = () => {
         </div>
       </div>
       <div className="footer">
-        {/* Pomodoro timer and white noise player.
-        <br />
-        Boost your productivity and focus.  */}
         This is an open source project, feel free to contribute on{" "}
         <a href="https://github.com/benyoon1/pomodoro-white-noise">GitHub.</a>
         <br />
