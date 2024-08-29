@@ -39,7 +39,14 @@ const useTimer = ({ handleAudioPlayer, isPlayClicked }) => {
     }, 1000);
 
     return () => clearInterval(intervalId);
-  }, [seconds, minutes, timerRunning, playBeepBeep, handleAudioPlayer]);
+  }, [
+    seconds,
+    minutes,
+    timerRunning,
+    playBeepBeep,
+    handleAudioPlayer,
+    isPlayClicked,
+  ]);
 
   useEffect(() => {
     document.title =
