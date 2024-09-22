@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 import Timer from "./components/Timer/Timer";
 import TimerTypeButton from "./components/TimerTypeButton/TimerTypeButton";
@@ -19,7 +19,11 @@ import useAudioPlayer from "./hooks/useAudioPlayer";
 const App = () => {
   const audioRef = useRef(null);
   const [selectedButton, setSelectedButton] = useState(0);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // Load the dark mode state from localStorage
+    const savedMode = localStorage.getItem("darkMode");
+    return savedMode ? JSON.parse(savedMode) : false;
+  });
 
   const {
     isPlayClicked,
@@ -47,12 +51,18 @@ const App = () => {
     isPlayClicked,
   });
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
+  useEffect(() => {
+    // Apply the dark mode class to the document element
     document.documentElement.setAttribute(
       "data-theme",
-      isDarkMode ? "light" : "dark"
+      isDarkMode ? "dark" : "light"
     );
+    // Save the dark mode state to localStorage
+    localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
+  }, [isDarkMode]);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
   };
 
   const timerBar = [
