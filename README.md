@@ -17,5 +17,5 @@ Feel free to try it out at: https://pomodoroandwhitenoise.com/
 
 ## Known Bugs:
 
-- When the timer is left in the background and is no longer an active tab in Chrome, a slight slowdown is noticed when compared to a real timer (~ 10 sec.)
+- For mobile devices, the audio stops playing when phone screen locks/turns off.
 - In Firefox, the volume bar does not work and it may be due to autoplay policy in Firefox. To be fixed.
