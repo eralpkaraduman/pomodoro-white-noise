@@ -1,0 +1,55 @@
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  width: 56px; /* Set the width to match the SVG icon */
+  height: 56px; /* Set the height to match the SVG icon */
+  padding: 0; /* Remove any default padding */
+  margin: 0; /* Remove any default margin */
+  display: flex; /* Center the SVG icon */
+  align-items: center; /* Center the SVG icon */
+  justify-content: center; /* Center the SVG icon */
+}
+
+/* Extra small devices (phones, 37.5em (600px) and down) */
+@media only screen and (max-width: 37.5em) {
+  .dark-mode-toggle {
+    font-size: 2rem;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 37.5em (600px) and up) */
+@media only screen and (min-width: 37.5em) and (orientation: portrait) {
+  .dark-mode-toggle {
+    font-size: 3.5rem;
+  }
+}
+
+/* (portrait tablets and large phones, 37.5em (600px) and up) */
+@media only screen and (min-width: 37.5em) {
+  .dark-mode-toggle {
+    font-size: 3.5rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 48em (768px) and up) */
+@media only screen and (min-width: 48em) {
+  .dark-mode-toggle {
+    font-size: 3.5rem;
+  }
+}
+
+/* Large devices (laptops/desktops, 62em (992px) and up) */
+@media only screen and (min-width: 62em) {
+  .dark-mode-toggle {
+    font-size: 3.5rem;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 75em (1200px) and up) */
+@media only screen and (min-width: 75em) {
+  .dark-mode-toggle {
+    font-size: 3.5rem;
+  }
+}
