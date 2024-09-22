@@ -2,6 +2,7 @@
   --main-color: #197f31;
   --background-color: #ffffff;
   --text-color: #000000;
+  --transition-duration: 0.3s; /* Define a variable for transition duration */
 }
 
 [data-theme="dark"] {
@@ -19,9 +20,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background-color);
   color: var(--text-color);
+  transition: background-color var(--transition-duration),
+    color var(--transition-duration); /* Apply transitions */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+  transition: color var(--transition-duration); /* Apply transitions */
 }
