@@ -11,6 +11,7 @@ import MoreButton from "./components/AudioPlayerButtons/MoreButton";
 import SoundButton from "./components/AudioPlayerButtons/SoundButton";
 import VolumeSlider from "./components/AudioPlayerButtons/VolumeSlider";
 import NextSongButton from "./components/AudioPlayerButtons/NextSongButton";
+import DarkMode from "./components/DarkMode/DarkMode";
 import SilentSound from "./assets/15-seconds-of-silence.mp3";
 import useTimer from "./hooks/useTimer";
 import useAudioPlayer from "./hooks/useAudioPlayer";
@@ -18,6 +19,7 @@ import useAudioPlayer from "./hooks/useAudioPlayer";
 const App = () => {
   const audioRef = useRef(null);
   const [selectedButton, setSelectedButton] = useState(0);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const {
     isPlayClicked,
@@ -45,6 +47,14 @@ const App = () => {
     isPlayClicked,
   });
 
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    document.documentElement.setAttribute(
+      "data-theme",
+      isDarkMode ? "light" : "dark"
+    );
+  };
+
   const timerBar = [
     { name: "25", time: 25 },
     { name: "5", time: 5 },
@@ -53,7 +63,9 @@ const App = () => {
 
   return (
     <div className="global-container">
-      <div className="nav-bar">&nbsp;</div>
+      <div className="nav-bar">
+        <DarkMode isDarkMode={isDarkMode} onToggle={toggleDarkMode} />
+      </div>
       <div className="main-container">
         <div className="logo-timer-container">
           <Logo name={`Pomodoro.`} />

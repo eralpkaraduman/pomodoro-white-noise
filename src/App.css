@@ -56,6 +56,12 @@ a {
     justify-content: flex-end;
   }
 
+  .nav-bar {
+    display: flex;
+    justify-content: center;
+    padding: 0rem 0rem 1rem;
+  }
+
   .start-row {
     margin: 3rem 0;
   }
@@ -74,7 +80,9 @@ a {
 /* (portrait tablets and large phones, 37.5em (600px) and up) */
 @media only screen and (min-width: 37.5em) and (orientation: portrait) {
   .nav-bar {
-    padding: 7vh;
+    display: flex;
+    justify-content: flex-end;
+    padding: 3rem;
   }
 
   .matrix-container {
@@ -108,7 +116,7 @@ a {
   .nav-bar {
     display: flex;
     justify-content: flex-end;
-    padding: 1rem;
+    padding: 3rem;
   }
 
   .white-noise-logo {
@@ -157,7 +165,9 @@ a {
 /* Medium devices (landscape tablets, 48em (768px) and up) */
 @media only screen and (min-width: 48em) and (orientation: portrait) {
   .nav-bar {
-    padding: 7vh;
+    display: flex;
+    justify-content: flex-end;
+    padding: 3rem;
   }
 
   .matrix-container {
@@ -195,7 +205,7 @@ a {
   .nav-bar {
     display: flex;
     justify-content: flex-end;
-    padding: 5vh;
+    padding: 3rem;
   }
 
   .white-noise-logo {
