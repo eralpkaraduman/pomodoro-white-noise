@@ -1,3 +1,9 @@
+:root {
+  --progress-track-light: #e0e0e0;
+  --progress-track-dark: #444;
+  --progress-bar: var(--main-color, #388e3c);
+}
+
 .timer {
   color: var(--main-color);
   font-family: "Roboto Flex", sans-serif;
@@ -47,4 +53,25 @@
     text-align: left;
     font-size: 6rem;
   }
+}
+
+.timer-progress-bar-container {
+  width: 100%;
+  height: 10px;
+  background: var(--progress-track-light);
+  border-radius: 5px;
+  margin: 1.5rem 0 0 0;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .timer-progress-bar-container {
+  background: var(--progress-track-dark);
+}
+
+.timer-progress-bar {
+  height: 100%;
+  background: var(--progress-bar);
+  transition: width 0.3s linear;
+  border-radius: 5px 0 0 5px;
+  box-shadow: 0 0 6px 1px rgba(56, 142, 60, 0.15);
 }

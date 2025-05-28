@@ -46,9 +46,11 @@ const App = () => {
     handleStartTimer,
     handleRestartButton,
     handleTimerTypeButton,
+    currentMinute,
   } = useTimer({
     handleAudioPlayer,
     isPlayClicked,
+    initialMinute: 90,
   });
 
   useEffect(() => {
@@ -66,6 +68,7 @@ const App = () => {
   };
 
   const timerBar = [
+    { name: "90", time: 90 },
     { name: "25", time: 25 },
     { name: "5", time: 5 },
     { name: "10", time: 10 },
@@ -84,6 +87,7 @@ const App = () => {
             timerRunning={timerRunning}
             minutes={minutes}
             seconds={seconds}
+            currentMinute={currentMinute}
           />
           <div className="left-empty-space">&nbsp;</div>
         </div>

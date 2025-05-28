@@ -2,11 +2,11 @@ import { useState, useEffect, useCallback } from "react";
 import { clearInterval, setInterval } from "worker-timers";
 import BeepBeep from "../assets/WristWatchAlarmSound.mp3";
 
-const useTimer = ({ handleAudioPlayer, isPlayClicked }) => {
+const useTimer = ({ handleAudioPlayer, isPlayClicked, initialMinute = 25 }) => {
   const [timerRunning, setTimerRunning] = useState(false);
-  const [minutes, setMinutes] = useState(25);
+  const [minutes, setMinutes] = useState(initialMinute);
   const [seconds, setSeconds] = useState(0);
-  const [currentMinute, setCurrentMinute] = useState(25);
+  const [currentMinute, setCurrentMinute] = useState(initialMinute);
   const [isStartClicked, setStartClicked] = useState(false);
   const [startClickedNum, setStartClickedNum] = useState(0);
   const [clickedIndex, setClickedIndex] = useState(0);
@@ -98,6 +98,7 @@ const useTimer = ({ handleAudioPlayer, isPlayClicked }) => {
     handleStartTimer,
     handleRestartButton,
     handleTimerTypeButton,
+    currentMinute,
   };
 };
 
