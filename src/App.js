@@ -19,10 +19,18 @@ import useAudioPlayer from "./hooks/useAudioPlayer";
 const App = () => {
   const audioRef = useRef(null);
   const [selectedButton, setSelectedButton] = useState(0);
+  const [mode, setMode] = useState(() => {
+    const savedMode = localStorage.getItem("darkModeMode");
+    return savedMode || "auto";
+  });
   const [isDarkMode, setIsDarkMode] = useState(() => {
-    // Load the dark mode state from localStorage
-    const savedMode = localStorage.getItem("darkMode");
-    return savedMode ? JSON.parse(savedMode) : false;
+    if (mode === "auto") {
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+    if (mode === "manual-dark") return true;
+    if (mode === "manual-light") return false;
+    const saved = localStorage.getItem("darkMode");
+    return saved ? JSON.parse(saved) : false;
   });
 
   const {
@@ -54,17 +62,29 @@ const App = () => {
   });
 
   useEffect(() => {
-    // Apply the dark mode class to the document element
+    localStorage.setItem("darkModeMode", mode);
+    if (mode === "auto") {
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+      const handleChange = (e) => setIsDarkMode(e.matches);
+      setIsDarkMode(mediaQuery.matches);
+      mediaQuery.addEventListener("change", handleChange);
+      return () => mediaQuery.removeEventListener("change", handleChange);
+    } else if (mode === "manual-dark") {
+      setIsDarkMode(true);
+    } else if (mode === "manual-light") {
+      setIsDarkMode(false);
+    }
+  }, [mode]);
+
+  useEffect(() => {
     document.documentElement.setAttribute(
       "data-theme",
       isDarkMode ? "dark" : "light"
     );
-    // Save the dark mode state to localStorage
-    localStorage.setItem("darkMode", JSON.stringify(isDarkMode));
   }, [isDarkMode]);
 
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
+  const handleModeChange = (newMode) => {
+    setMode(newMode);
   };
 
   const timerBar = [
@@ -77,7 +97,11 @@ const App = () => {
   return (
     <div className="global-container">
       <div className="nav-bar">
-        <DarkMode isDarkMode={isDarkMode} onToggle={toggleDarkMode} />
+        <DarkMode
+          isDarkMode={isDarkMode}
+          mode={mode}
+          onModeChange={handleModeChange}
+        />
       </div>
       <div className="main-container">
         <div className="logo-timer-container">
