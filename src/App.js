@@ -174,13 +174,11 @@ const App = () => {
         </div>
       </div>
       <div className="footer">
-        This is an open source project, feel free to contribute on{" "}
-        <a href="https://github.com/benyoon1/pomodoro-white-noise">GitHub.</a>
-        <br />
-        For bugs and feature requests, please create an issue{" "}
-        <a href="https://github.com/benyoon1/pomodoro-white-noise/issues">
-          here.
-        </a>
+        This is an open source project, forked from{' '}
+        <a href="https://github.com/benyoon1/pomodoro-white-noise" target="_blank" rel="noopener noreferrer">benyoon1/pomodoro-white-noise</a>.<br />
+        You can find this fork at{' '}
+        <a href="https://github.com/eralpkaraduman/pomodoro-white-noise" target="_blank" rel="noopener noreferrer">github.com/eralpkaraduman/pomodoro-white-noise</a>.<br />
+        Feel free to contribute or open issues and feature requests!
       </div>
     </div>
   );
